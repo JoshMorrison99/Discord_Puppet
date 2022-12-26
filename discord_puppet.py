@@ -1,5 +1,5 @@
 import requests
-from discord import Webhook, RequestsWebhookAdapter
+from discord import Webhook, RequestsWebhookAdapter, File
 import sys
 import argparse
 
@@ -26,7 +26,7 @@ if (args.m):
 # Sending file to discord server
 if (args.f):
     with open(file=args.f, mode='rb') as f:
-        my_file = discord.File(f)
+        my_file = File(f)
         webhook.send(file=my_file)
         exit(0)
 
