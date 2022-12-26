@@ -13,7 +13,8 @@ parser.add_argument('-c', metavar='-code',
                     help="Send a code formatted message to a discord server")
 args = parser.parse_args()
 
-web = sys.stdin.readlines()[0].strip("\n")
+for line in sys.stdin:
+    web = line
 webhook = Webhook.from_url(web, adapter=RequestsWebhookAdapter())
 
 # Sending message to discord server
