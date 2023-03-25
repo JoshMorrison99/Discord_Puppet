@@ -1,5 +1,5 @@
 import requests
-from discord import Webhook, RequestsWebhookAdapter, File
+from discord import SyncWebhook
 import sys
 import argparse
 
@@ -15,7 +15,7 @@ args = parser.parse_args()
 
 for line in sys.stdin:
     web = line
-webhook = Webhook.from_url(web, adapter=RequestsWebhookAdapter())
+webhook = SyncWebhook.from_url(web)
 
 # Sending message to discord server
 if (args.m):
